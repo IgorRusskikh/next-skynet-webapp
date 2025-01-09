@@ -1,0 +1,51 @@
+.form {
+  @apply pt-[9.72vw] font-medium flex flex-col gap-[6.67vw];
+}
+
+.rate {
+  @apply flex justify-between px-[4.44vw] py-[2.22vw] bg-light-gray rounded-[3.33vw];
+}
+
+.col {
+  @apply flex flex-col justify-between;
+}
+
+.rate label {
+  @apply text-[2.78vw] leading-[4.17vw] mb-[2.22vw];
+}
+
+.switcher {
+  @apply w-[25vw];
+}
+
+.select {
+  @apply border-[0.28vw] border-primary-red bg-primary-red text-white;
+}
+
+.dropdownArrow {
+  @apply w-[1.94vw] h-[0.83vw] ml-[1.11vw] relative transition-[transform] duration-300;
+}
+
+.arrowOpen {
+  @apply rotate-180;
+}
+
+.arrowClose {
+  @apply rotate-0;
+}
+
+.amount {
+  @apply mb-[1.11vw] text-[3.33vw] leading-[5vw];
+}
+
+.actions {
+  @apply flex gap-[2.22vw];
+}
+
+.arrow {
+  @apply relative w-[2.78vw] h-[3.89vw] inline-block items-end ml-[1.11vw] mb-[0.8vw];
+}
+
+.rotatedArrow {
+  @apply rotate-180;
+}

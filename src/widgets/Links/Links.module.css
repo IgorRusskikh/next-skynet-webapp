@@ -1,0 +1,19 @@
+.links {
+  @apply mt-[6.67vw] flex flex-col gap-[3.33vw] pb-[16.94vw];
+}
+
+.container {
+  @apply bg-light-gray rounded-[3.33vw] font-medium;
+}
+
+.link {
+  @apply px-[4.44vw] py-[2.78vw] flex gap-[2.22vw];
+}
+
+.linkBorder {
+  @apply border-t border-[#F5F5F5];
+}
+
+.icon {
+  @apply relative size-[5vw];
+}
