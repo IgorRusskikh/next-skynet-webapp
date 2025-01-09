@@ -1,0 +1,23 @@
+.select {
+  @apply relative font-medium uppercase text-[3.33vw] leading-[5vw];
+}
+
+.currentOption {
+  @apply w-full flex items-center justify-center py-[0.56vw] rounded-[27.78vw];
+}
+
+.options {
+  @apply absolute z-10 w-full rounded-[2.78vw] border-[0.28vw] border-primary-red transition-[opacity_transform] duration-300 bg-white;
+}
+
+.open {
+  @apply visible top-[7.22vw] opacity-100;
+}
+
+.close {
+  @apply invisible top-[5.56vw] opacity-0;
+}
+
+.option {
+  @apply px-[4.58vw] py-[1.11vw];
+}

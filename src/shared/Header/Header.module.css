@@ -1,0 +1,7 @@
+.header {
+  @apply flex items-center w-full gap-[12.22vw] container pt-[4.17vw];
+}
+
+.logo {
+  @apply relative w-[38.33vw] h-[3.3vw];
+}

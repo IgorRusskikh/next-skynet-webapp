@@ -1,0 +1,19 @@
+.switcher {
+  @apply w-[14.44vw];
+}
+
+.select {
+  @apply border-[0.28vw] border-[#D02E27];
+}
+
+.dropdownArrow {
+  @apply w-[1.94vw] h-[0.83vw] ml-[1.11vw] relative transition-[transform] duration-300;
+}
+
+.arrowOpen {
+  @apply rotate-180;
+}
+
+.arrowClose {
+  @apply rotate-0;
+}

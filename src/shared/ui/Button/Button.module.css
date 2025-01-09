@@ -1,0 +1,11 @@
+.button {
+  @apply w-full rounded-[2.78vw] h-[18.33vw] bg-light-gray text-[3.33vw] leading-[5vw] flex justify-center items-center;
+}
+
+.default {
+  @apply bg-light-gray text-foreground;
+}
+
+.active {
+  @apply bg-primary-red text-black;
+}

@@ -1,0 +1,23 @@
+.container {
+  @apply pt-[4.44vw] w-full text-center text-[3.33vw] leading-[5vw] font-medium;
+}
+
+.header {
+  @apply text-[3.33vw] leading-[5vw];
+}
+
+.steps {
+  @apply grid mt-[3.89vw] gap-[0.56vw];
+}
+
+.step {
+  @apply h-[0.56vw];
+}
+
+.active {
+  @apply bg-primary-red;
+}
+
+.default {
+  @apply bg-light-gray;
+}
