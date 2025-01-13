@@ -1,0 +1,75 @@
+.formWrapper {
+  @apply mt-[6.67vw] font-medium pb-[11.11vw] flex flex-1 bg-white absolute top-0 transition-all duration-500 ease-in-out h-full w-full;
+}
+
+.formWrapperHidden {
+  @apply left-[100%];
+}
+
+.formWrapperShown {
+  @apply left-0;
+}
+
+.form {
+  @apply flex flex-col justify-between flex-1;
+}
+
+.fieldSet {
+  @apply flex flex-col gap-[2.22vw];
+}
+
+.fieldSet label {
+  @apply text-[4.44vw] leading-[4.44vw];
+}
+
+.secondFieldSet {
+  @apply mt-[6.67vw];
+}
+
+.select {
+  @apply block px-[4.44vw] py-[2.78vw] bg-[#FBFBFB] rounded-[2.78vw];
+}
+
+.currentOption {
+  @apply flex justify-between items-center;
+}
+
+.currency {
+  @apply flex items-center gap-[2.22vw];
+}
+
+.currencyIcon {
+  @apply relative size-[5vw];
+}
+
+.arrowIcon {
+  @apply relative w-[4.44vw] h-[2.5vw] transition-[transform] duration-300 ease-in-out;
+}
+
+.arrowIconOpen {
+  @apply rotate-180;
+}
+
+.arrowIconClose {
+  @apply rotate-0;
+}
+
+.option {
+  @apply px-[4.44vw] py-[2.78vw] active:bg-primary-red active:text-white transition-colors;
+}
+
+.inputCurrency {
+  @apply text-[3.33vw] leading-[5vw] flex items-center justify-center text-[#E0E0E0];
+}
+
+.description {
+  @apply mt-[4.44vw] text-[2.78vw] leading-[2.78vw] text-[#686868];
+}
+
+.actions p {
+  @apply text-[2.78vw] leading-[2.78vw] text-[#686868];
+}
+
+.actions button {
+  @apply h-[10.56vw] bg-[#EAEAEA] mt-[4.44vw];
+}

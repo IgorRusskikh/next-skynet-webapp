@@ -1,0 +1,31 @@
+.offices {
+  @apply container flex flex-col justify-between font-medium h-full flex-1 pb-[11.11vw];
+}
+
+.icon {
+  @apply relative size-[5vw];
+}
+
+.addresses {
+  @apply mt-[6.67vw] flex flex-col gap-[4.44vw] flex-1;
+}
+
+.office {
+  @apply text-[3.33vw] leading-[5vw] font-medium;
+}
+
+.streets {
+  @apply mt-[2.22vw] flex flex-wrap gap-[1.11vw];
+}
+
+.street {
+  @apply px-[4.44vw] py-[2.78vw] bg-[#FBFBFB] rounded-[2.78vw] active:bg-primary-red active:text-white transition-colors;
+}
+
+.contactWithManager p {
+  @apply text-[4.44vw] leading-[6.67vw];
+}
+
+.contactWithManager button {
+  @apply bg-primary-red h-[10.56vw] rounded-[3.33vw] text-white mt-[2.22vw];
+}

@@ -1,0 +1,39 @@
+.form {
+  @apply container mt-[6.67vw] font-medium flex flex-1 flex-col justify-between pb-[11.11vw];
+}
+
+.currenciesContainer p {
+  @apply text-[4.44vw] leading-[6.67vw];
+}
+
+.currencies {
+  @apply grid grid-cols-3 gap-[2.22vw] mt-[2.22vw];
+}
+
+.currencies button {
+  @apply h-[10.56vw] transition-colors;
+}
+
+.activeCurrency {
+  @apply bg-primary-red text-white;
+}
+
+.amounts {
+  @apply mt-[6.67vw];
+}
+
+.amounts span {
+  @apply text-[#E0E0E0];
+}
+
+.nextButton p {
+  @apply text-[2.78vw] leading-[2.78vw] text-[#686868];
+}
+
+.nextButton button {
+  @apply h-[10.56vw] transition-colors mt-[4.44vw];
+}
+
+.buttonActive {
+  @apply bg-primary-red text-white;
+}

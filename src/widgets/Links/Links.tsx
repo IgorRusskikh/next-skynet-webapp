@@ -2,22 +2,31 @@ import CustomLink from "@/shared/ui/Link/Link";
 import Image from "next/image";
 import styles from "./Links.module.css";
 
-export default function Links() {
+const Links = () => {
   return (
     <div className={`${styles.links}`}>
       <InnerLinks />
       <OuterLinks />
     </div>
   );
-}
+};
+
+export default Links;
+
+const innerLinks = [
+  {
+    name: "Cash2Cash",
+    link: "cash2cash",
+  },
+];
 
 function InnerLinks() {
   return (
     <div className={`${styles.container}`}>
-      {Array.from({ length: 4 }).map((_, inx) => (
+      {innerLinks.map(({ name, link }, inx) => (
         <CustomLink
           key={inx}
-          href=""
+          href={link}
           className={`${styles.link} ${inx > 0 ? styles.linkBorder : ""}`}
         >
           <div className={`${styles.icon}`}>
@@ -29,7 +38,7 @@ function InnerLinks() {
             />
           </div>
 
-          <span>Cash2Cash</span>
+          <span>{name}</span>
         </CustomLink>
       ))}
     </div>

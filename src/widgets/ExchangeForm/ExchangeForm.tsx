@@ -2,10 +2,14 @@
 
 import { Button } from "@/shared/ui/Button";
 import Image from "next/image";
+import Link from "next/link";
 import Select from "@/shared/ui/Select/Select";
 import styles from "./ExchangeForm.module.css";
+import { useRouter } from "next/navigation";
 
 export default function ExchangeForm() {
+  const router = useRouter();
+
   return (
     <div className={`${styles.form}`}>
       <div className={`${styles.rate}`}>
@@ -29,13 +33,13 @@ export default function ExchangeForm() {
       </div>
 
       <div className={`${styles.actions}`}>
-        <Button>
+        <Button onClick={() => router.push("/purchase")}>
           Купить USDT{" "}
           <div className={`${styles.arrow}`}>
             <Image src="/red-arrow.png" fill alt="Buy" />
           </div>
         </Button>
-        <Button>
+        <Button onClick={() => router.push("/sale")}>
           Продать USDT
           <div className={`${styles.arrow} ${styles.rotatedArrow}`}>
             <Image src="/red-arrow.png" fill alt="Sell" />
