@@ -7,6 +7,7 @@ import Header from "@/shared/Header/Header";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./SuccessfullRequest.module.css";
+import { useRouter } from "next/navigation";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   operation?: "purchase" | "sale";
@@ -30,6 +31,8 @@ const SuccessfulRequest = ({
 }: Props) => {
   const [isCopied, setIsCopied] = useState(false);
   const [isClient, setIsClient] = useState(false);
+
+  const router = useRouter();
 
   useEffect(() => {
     setIsClient(true);
@@ -107,9 +110,7 @@ const SuccessfulRequest = ({
         </div>
 
         <div className={`${styles.successButton}`}>
-          <Link href="/" className="w-full">
-            <Button>Готово</Button>
-          </Link>
+          <Button onClick={() => router.push("/")}>Готово</Button>
         </div>
       </div>
     </div>
