@@ -2,12 +2,12 @@ import { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
 
 import { Button } from "@/shared/ui/Button";
 import InputWithLabel from "@/shared/InputWithLabel/InputWithLabel";
-import { formData } from "@/types/usdtFormData";
 import styles from "./BuySellForm.module.css";
+import { usdtFormData } from "@/types/usdtFormData";
 
 interface Props {
   verification?: boolean;
-  formData: formData;
+  formData: usdtFormData;
   setFormData: Dispatch<SetStateAction<usdtFormData>>;
   nextStep: () => void;
 }

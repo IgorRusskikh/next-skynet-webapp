@@ -15,7 +15,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   amount: number;
   currency: string;
   manager: string;
-  show: boolean;
+  show?: boolean;
 }
 
 const SuccessfulRequest = ({

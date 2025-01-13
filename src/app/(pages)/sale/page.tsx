@@ -4,7 +4,7 @@ import BuySellForm from "@/widgets/BuySellForm";
 import Offices from "@/widgets/Offices";
 import Steps from "@/shared/Steps/Steps";
 import SuccessfullRequest from "@/widgets/SuccessfullRequest";
-import { formData } from "@/types/usdtFormData";
+import { usdtFormData } from "@/types/usdtFormData";
 import { useState } from "react";
 
 export default function SalePage() {
