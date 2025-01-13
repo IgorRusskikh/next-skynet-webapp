@@ -1,0 +1,11 @@
+.searchForm {
+  @apply mt-[6.67vw] font-medium;
+}
+
+.searchForm label {
+  @apply text-[4.44vw] leading-[6.67vw];
+}
+
+.input {
+  @apply mt-[2.22vw];
+}
