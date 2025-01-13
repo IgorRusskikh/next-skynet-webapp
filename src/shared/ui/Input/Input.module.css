@@ -1,0 +1,7 @@
+.inputWrapper {
+  @apply px-[4.44vw] py-[2.78vw] rounded-[2.78vw] bg-[#FBFBFB] flex justify-between w-full;
+}
+
+.inputWrapper input {
+  @apply flex-1 text-[3.33vw] leading-[5vw] bg-transparent outline-none placeholder:text-[#E0E0E0] pr-[2.22vw];
+}
