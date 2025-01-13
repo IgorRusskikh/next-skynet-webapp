@@ -1,6 +1,6 @@
 import ExchangeForm from "@/widgets/ExchangeForm/ExchangeForm";
 import Header from "@/shared/Header/Header";
-import Links from "@/widgets/Links/Links";
+import Links from "@/widgets/Links";
 
 export default function Home() {
   return (

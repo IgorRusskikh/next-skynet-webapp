@@ -5,15 +5,27 @@ import { HTMLAttributes, JSX, useState } from "react";
 import styles from "./Select.module.css";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
+  setValue?: (value: string) => void;
   currentOption: (isOpen: boolean) => JSX.Element;
-  options: string[] | JSX.Element[];
+  options: string[] | [() => JSX.Element];
 }
 
-export default function Select({ currentOption, options, className }: Props) {
+export default function Select({
+  setValue,
+  currentOption,
+  options,
+  className,
+}: Props) {
   const [isOpen, setIsOpen] = useState(false);
 
   const onClick = () => {
     setIsOpen((prev) => !prev);
+  };
+
+  const onSelect = (value: string) => {
+    if (setValue) {
+      setValue(value);
+    }
   };
 
   return (
@@ -25,15 +37,21 @@ export default function Select({ currentOption, options, className }: Props) {
       <div
         className={`${styles.options} ${isOpen ? styles.open : styles.close}`}
       >
-        <div className={`${styles.option}`}>
-          {options.map((option, inx) => {
-            if (typeof option === "string") {
-              return <p key={inx}>{option}</p>;
-            } else {
-              return <option key={inx} />;
-            }
-          })}
-        </div>
+        {options.map((Option, inx) => {
+          if (typeof Option === "string") {
+            return (
+              <div
+                key={inx}
+                className={`${styles.option}`}
+                onClick={() => onSelect(Option)}
+              >
+                <p>{Option}</p>
+              </div>
+            );
+          } else {
+            return <Option key={inx} />;
+          }
+        })}
       </div>
     </div>
   );

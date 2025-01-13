@@ -2,6 +2,10 @@
   @apply flex items-center w-full gap-[12.22vw] container pt-[4.17vw];
 }
 
+.headerWithoutSwitcher {
+  @apply flex justify-center w-full container pt-[5.56vw];
+}
+
 .logo {
   @apply relative w-[38.33vw] h-[3.3vw];
 }

@@ -2,14 +2,15 @@ import { HTMLAttributes } from "react";
 import styles from "./Steps.module.css";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
+  title: string;
   steps?: number;
   currentStep: number;
 }
 
-export default function Steps({ steps = 1, currentStep }: Props) {
+export default function Steps({ title, steps = 1, currentStep }: Props) {
   return (
     <div className={`${styles.container}`}>
-      <p className={`${styles.header}`}>Покупка USDT</p>
+      <p className={`${styles.header}`}>{title}</p>
 
       <div
         className={`${styles.steps}`}
@@ -21,7 +22,7 @@ export default function Steps({ steps = 1, currentStep }: Props) {
           <div
             key={inx}
             className={`${styles.step} ${
-              inx <= currentStep ? styles.active : styles.default
+              inx <= currentStep - 1 ? styles.stepActive : ""
             }`}
           ></div>
         ))}

@@ -7,15 +7,15 @@
 }
 
 .options {
-  @apply absolute z-10 w-full rounded-[2.78vw] border-[0.28vw] border-primary-red transition-[opacity_transform] duration-300 bg-white;
+  @apply absolute z-10 w-full rounded-[2.78vw] border-[0.28vw] border-primary-red transition-[opacity_transform] duration-300 bg-white overflow-clip;
 }
 
 .open {
-  @apply visible top-[7.22vw] opacity-100;
+  @apply visible top-[115%] opacity-100;
 }
 
 .close {
-  @apply invisible top-[5.56vw] opacity-0;
+  @apply invisible top-[100%] opacity-0;
 }
 
 .option {

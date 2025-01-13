@@ -11,13 +11,9 @@
 }
 
 .step {
-  @apply h-[0.56vw];
+  @apply h-[0.56vw] bg-[#E0E0E0] after:content-[''] after:w-full after:absolute relative transition-all duration-500 ease-in-out;
 }
 
-.active {
-  @apply bg-primary-red;
-}
-
-.default {
-  @apply bg-light-gray;
+.stepActive {
+  @apply w-full bg-primary-red;
 }
