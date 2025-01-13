@@ -1,0 +1,59 @@
+.wrapper {
+  @apply mt-[6.67vw] font-medium pb-[11.11vw] flex-1 flex flex-col overflow-clip;
+}
+
+.icon {
+  @apply relative size-[5vw];
+}
+
+.container {
+  @apply flex-1 relative overflow-clip;
+}
+
+.locations {
+  @apply mt-[6.67vw] bg-[#FBFBFB] rounded-[3.33vw] flex flex-col w-full;
+}
+
+.location {
+  @apply px-[4.44vw] py-[2.78vw] text-[3.33vw] leading-[5vw] text-left active:bg-primary-red active:text-white transition-colors;
+}
+
+.absoluteList {
+  @apply absolute top-0 transition-all duration-500 ease-in-out mt-[6.67vw] overflow-scroll opacity-100 visible;
+}
+
+.absoluteListHidden {
+  @apply left-[100%];
+}
+
+.absoluteListShown {
+  @apply left-0;
+}
+
+.absoluteListPrev {
+  @apply overflow-clip opacity-0 visible;
+}
+
+.contactWithManager {
+  @apply transition-all duration-500 overflow-clip;
+}
+
+.contactWithManager p {
+  @apply text-[4.44vw] leading-[4.44vw];
+}
+
+.contactWithManager button {
+  @apply h-[10.56vw] bg-primary-red text-white mt-[4.44vw];
+}
+
+.contactWithManagerHidden {
+  @apply invisible opacity-0 max-h-0;
+}
+
+.contactWithManagerShown {
+  @apply visible opacity-100 max-h-none;
+}
+
+.a {
+  @apply pb-[10vw];
+}
