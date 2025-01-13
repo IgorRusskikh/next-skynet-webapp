@@ -1,0 +1,51 @@
+.successfullScreen {
+  @apply transition-all duration-500 ease-in-out absolute bg-white min-h-[100dvh] flex flex-col pb-[11.11vw] w-full;
+}
+
+.successfullScreenHidden {
+  @apply top-[100vh];
+}
+
+.successfullScreenShown {
+  @apply top-0;
+}
+
+.content {
+  @apply mt-[68.61vw] font-medium flex flex-col flex-1;
+}
+
+.codeInput {
+  @apply flex justify-center gap-[1.11vw];
+}
+
+.input {
+  @apply w-[10.28vw] h-[12.22vw] rounded-[3.33vw] bg-[#FBFBFB] text-[10vw] leading-[10vw] flex justify-center items-center px-[2.78vw] text-center;
+}
+
+.iconWrapper {
+  @apply w-[10.28vw] h-[12.22vw] rounded-[3.33vw] bg-[#FBFBFB] flex justify-center items-center;
+}
+
+.copyIcon {
+  @apply relative w-[5.28vw] h-[6.11vw];
+}
+
+.descriptionBlock {
+  @apply mt-[4.44vw] text-center;
+}
+
+.title {
+  @apply text-[4.44vw] leading-[4.44vw];
+}
+
+.description {
+  @apply mt-[2.22vw] text-[2.78vw] leading-[2.78vw] text-[#686868];
+}
+
+.successButton {
+  @apply flex items-end flex-1;
+}
+
+.successButton button {
+  @apply h-[10.56vw] bg-primary-red text-white;
+}
