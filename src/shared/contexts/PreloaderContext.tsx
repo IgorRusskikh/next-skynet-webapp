@@ -3,6 +3,7 @@
 import {
   Dispatch,
   SetStateAction,
+  Suspense,
   createContext,
   useContext,
   useEffect,
@@ -28,7 +29,7 @@ const PreloaderContext = createContext<PreloaderContextType>({
 
 export const usePreloader = () => useContext(PreloaderContext);
 
-export function PreloaderProvider({ children }: { children: React.ReactNode }) {
+function PreloaderContent({ children }: { children: React.ReactNode }) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [timeout, setPreloaderTimeout] = useState(500);
   const [isPreloaderShown, setIsPreloaderShown] = useState(true);
@@ -65,5 +66,13 @@ export function PreloaderProvider({ children }: { children: React.ReactNode }) {
         />
       </div>
     </PreloaderContext.Provider>
+  );
+}
+
+export function PreloaderProvider({ children }: { children: React.ReactNode }) {
+  return (
+    <Suspense>
+      <PreloaderContent>{children}</PreloaderContent>
+    </Suspense>
   );
 }
