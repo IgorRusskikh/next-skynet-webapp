@@ -9,6 +9,7 @@ interface Props {
   verification?: boolean;
   formData: usdtFormData;
   setFormData: Dispatch<SetStateAction<usdtFormData>>;
+  step: number;
   nextStep: () => void;
 }
 
@@ -19,6 +20,7 @@ const BuySellForm = ({
   formData,
   setFormData,
   nextStep,
+  step,
 }: Props) => {
   const [recieve, setRecieve] = useState("");
 
@@ -40,7 +42,11 @@ const BuySellForm = ({
   };
 
   return (
-    <div className={`${styles.form}`}>
+    <div
+      className={`${styles.form} ${
+        step === 2 ? styles.formShown : step > 2 ? "" : styles.formHidden
+      }`}
+    >
       <div>
         <div className={`${styles.currenciesContainer}`}>
           <p>Вы отдаёте</p>

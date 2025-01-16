@@ -38,17 +38,19 @@ export default function PurchasePage() {
     <>
       <main className="min-h-[100dvh] flex flex-col relative">
         <Steps title="Покупка USDT" steps={steps - 1} currentStep={step} />
-        <div className="container flex flex-col flex-1">
-          {step === 1 && (
-            <Offices nextStep={nextStep} setFormData={setFormData} />
-          )}
-          {step === 2 && (
-            <BuySellForm
-              formData={formData}
-              setFormData={setFormData}
-              nextStep={nextStep}
-            />
-          )}
+        <div className="container flex flex-col flex-1 relative overflow-hidden">
+          <Offices
+            step={step}
+            showPoint={1}
+            nextStep={nextStep}
+            setFormData={setFormData}
+          />
+          <BuySellForm
+            formData={formData}
+            setFormData={setFormData}
+            step={step}
+            nextStep={nextStep}
+          />
         </div>
 
         <SuccessfullRequest

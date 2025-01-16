@@ -1,7 +1,7 @@
 import {
+  ChangeEvent,
   Dispatch,
   FormEvent,
-  FormEventHandler,
   HTMLAttributes,
   SetStateAction,
 } from "react";
@@ -28,6 +28,30 @@ const Cash2CashExchangeForm = ({
   setFormData,
   className,
 }: Props) => {
+  const onClickPayCurrency = (currency: string) => {
+    if (formData.payCurrency !== currency) {
+      setFormData((prev) => ({ ...prev, payCurrency: currency }));
+    }
+  };
+
+  const onChangePayAmount = (evt: ChangeEvent<HTMLInputElement>) => {
+    const payAmount = evt.target.value;
+    const getAmount = payAmount.length ? String(parseFloat(payAmount) * 2) : "";
+    setFormData((prev) => ({ ...prev, payAmount, getAmount }));
+  };
+
+  const onClickGetCurrency = (currency: string) => {
+    if (formData.getCurrency !== currency) {
+      setFormData((prev) => ({ ...prev, getCurrency: currency }));
+    }
+  };
+
+  const onChangeGetAmount = (evt: ChangeEvent<HTMLInputElement>) => {
+    const getAmount = evt.target.value;
+    const payAmount = getAmount.length ? String(parseFloat(getAmount) / 2) : "";
+    setFormData((prev) => ({ ...prev, payAmount, getAmount }));
+  };
+
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     nextStep();
@@ -46,27 +70,47 @@ const Cash2CashExchangeForm = ({
       <form action="" className={`${styles.form}`} onSubmit={onSubmit}>
         <div className={`${styles.fields}`}>
           <fieldset className={`${styles.fieldSet}`}>
-            <label htmlFor="give">Вы отдаёте в [городе]</label>
+            <label htmlFor="pay">Вы отдаёте в {formData.cityPay}</label>
             <Select
-              currentOption={(isOpen) => CurrentOption(isOpen, "RUB")}
+              currentOption={(isOpen) =>
+                CurrentOption(isOpen, formData.payAmount)
+              }
               options={["1"]}
               className={`${styles.select}`}
+              setValue={onClickPayCurrency}
             />
-            <Input placeholder="0">
-              <div className={`${styles.inputCurrency}`}>RUB</div>
+            <Input
+              id="pay"
+              placeholder="0"
+              value={formData.payAmount.toString()}
+              setValue={onChangePayAmount}
+            >
+              <div className={`${styles.inputCurrency}`}>
+                {formData.payCurrency}
+              </div>
             </Input>
           </fieldset>
 
           <fieldset className={`${styles.fieldSet} ${styles.secondFieldSet}`}>
-            <label htmlFor="give">Вы отдаёте в [городе]</label>
+            <label htmlFor="get">Вы получаете в {formData.cityGet}</label>
             <Select
-              currentOption={(isOpen) => CurrentOption(isOpen, "USD")}
+              currentOption={(isOpen) =>
+                CurrentOption(isOpen, formData.getCurrency)
+              }
               // @ts-expect-error: comment for now
               options={[DollarOption, EuroOption]}
               className={`${styles.select}`}
+              setValue={onClickGetCurrency}
             />
-            <Input placeholder="0">
-              <div className={`${styles.inputCurrency}`}>USD</div>
+            <Input
+              id="get"
+              placeholder="0"
+              value={formData.getAmount}
+              setValue={onChangeGetAmount}
+            >
+              <div className={`${styles.inputCurrency}`}>
+                {formData.getCurrency}
+              </div>
             </Input>
           </fieldset>
 
@@ -114,9 +158,16 @@ function CurrentOption(isOpen: boolean, currency: string) {
   );
 }
 
-function DollarOption() {
+interface IOptionProps {
+  setValue?: (value: string) => void;
+}
+
+function DollarOption({ setValue }: IOptionProps) {
   return (
-    <div className={`${styles.option}`}>
+    <div
+      className={`${styles.option}`}
+      onClick={() => setValue && setValue("USD")}
+    >
       <div className={`${styles.currency}`}>
         <div className={`${styles.currencyIcon}`}>
           <Image src={"/dollar.png"} fill alt="Ruble" />
@@ -127,14 +178,17 @@ function DollarOption() {
   );
 }
 
-function EuroOption() {
+function EuroOption({ setValue }: IOptionProps) {
   return (
-    <div className={`${styles.option}`}>
+    <div
+      className={`${styles.option}`}
+      onClick={() => setValue && setValue("EURO")}
+    >
       <div className={`${styles.currency}`}>
         <div className={`${styles.currencyIcon}`}>
-          <Image src={"/euro.png"} fill alt="Ruble" />
+          <Image src={"/euro.png"} fill alt="Euro" />
         </div>
-        <span>USD</span>
+        <span>EURO</span>
       </div>
     </div>
   );

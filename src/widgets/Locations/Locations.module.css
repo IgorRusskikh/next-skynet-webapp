@@ -7,7 +7,7 @@
 }
 
 .container {
-  @apply flex-1 relative overflow-clip;
+  @apply flex-1 relative overflow-clip pb-[10vw];
 }
 
 .locations {
@@ -31,7 +31,7 @@
 }
 
 .absoluteListPrev {
-  @apply overflow-clip opacity-0 visible;
+  @apply overflow-clip opacity-0 invisible;
 }
 
 .contactWithManager {
@@ -54,6 +54,6 @@
   @apply visible opacity-100 max-h-none;
 }
 
-.a {
-  @apply pb-[10vw];
+.continents {
+  @apply overflow-clip;
 }

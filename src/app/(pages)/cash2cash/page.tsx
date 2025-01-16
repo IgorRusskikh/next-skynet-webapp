@@ -7,13 +7,16 @@ import SuccessfulRequest from "@/widgets/SuccessfullRequest";
 import { useState } from "react";
 
 const clearFormData: cashToCashFormData = {
-  continent: "",
-  country: "",
-  city: "",
+  continentPay: "",
+  countryPay: "",
+  cityPay: "",
+  continentGet: "",
+  countryGet: "",
+  cityGet: "",
   payCurrency: "RUB",
-  payAmount: 0,
+  payAmount: "",
   getCurrency: "USD",
-  getAmount: 0,
+  getAmount: "",
 };
 
 const steps = 8;

@@ -5,8 +5,8 @@ import { HTMLAttributes, useEffect, useState } from "react";
 import { Button } from "@/shared/ui/Button";
 import Header from "@/shared/Header/Header";
 import Image from "next/image";
-import Link from "next/link";
 import styles from "./SuccessfullRequest.module.css";
+import { usePreloader } from "@/shared/contexts/PreloaderContext";
 import { useRouter } from "next/navigation";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
@@ -31,6 +31,8 @@ const SuccessfulRequest = ({
 }: Props) => {
   const [isCopied, setIsCopied] = useState(false);
   const [isClient, setIsClient] = useState(false);
+
+  const { setIsLoaded, setPreloaderTimeout } = usePreloader();
 
   const router = useRouter();
 
@@ -60,6 +62,7 @@ const SuccessfulRequest = ({
     document.body.appendChild(textArea);
     textArea.focus();
     textArea.select();
+
     try {
       document.execCommand("copy");
       setIsCopied(true);
@@ -67,7 +70,14 @@ const SuccessfulRequest = ({
     } catch (err) {
       console.error("Fallback: Oops, unable to copy", err);
     }
+
     document.body.removeChild(textArea);
+  };
+
+  const onClickBack = () => {
+    setIsLoaded(false);
+    // setPreloaderTimeout(1000);
+    setTimeout(() => router.push("/"), 400);
   };
 
   return (
@@ -110,7 +120,7 @@ const SuccessfulRequest = ({
         </div>
 
         <div className={`${styles.successButton}`}>
-          <Button onClick={() => router.push("/")}>Готово</Button>
+          <Button onClick={onClickBack}>Готово</Button>
         </div>
       </div>
     </div>

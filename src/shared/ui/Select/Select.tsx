@@ -3,6 +3,7 @@
 import { HTMLAttributes, JSX, useState } from "react";
 
 import styles from "./Select.module.css";
+import { useClickAway } from "@uidotdev/usehooks";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   setValue?: (value: string) => void;
@@ -18,6 +19,10 @@ export default function Select({
 }: Props) {
   const [isOpen, setIsOpen] = useState(false);
 
+  const selectRef = useClickAway<HTMLDivElement>(() => {
+    setIsOpen(false);
+  });
+
   const onClick = () => {
     setIsOpen((prev) => !prev);
   };
@@ -26,10 +31,12 @@ export default function Select({
     if (setValue) {
       setValue(value);
     }
+
+    setIsOpen(false);
   };
 
   return (
-    <div className={`${styles.select}`}>
+    <div ref={selectRef} className={`${styles.select}`}>
       <div className={`${styles.currentOption} ${className}`} onClick={onClick}>
         {currentOption(isOpen)}
       </div>
@@ -49,7 +56,16 @@ export default function Select({
               </div>
             );
           } else {
-            return <Option key={inx} />;
+            return (
+              <Option
+                key={inx}
+                // @ts-expect-error: comment for now
+                setValue={(value: string) => {
+                  if (setValue) setValue(value);
+                  setIsOpen(false);
+                }}
+              />
+            );
           }
         })}
       </div>

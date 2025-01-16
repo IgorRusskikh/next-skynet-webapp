@@ -1,0 +1,35 @@
+.detailDeal {
+  @apply absolute left-0 top-0 w-full h-full pt-[6.67vw] font-medium bg-white transition-all duration-500 ease-in-out;
+}
+
+.detailDealShown {
+  @apply top-0 scale-100;
+}
+
+.detailDealHidden {
+  @apply top-full scale-75;
+}
+
+.details {
+  @apply absolute top-0 left-0 w-full h-full;
+}
+
+.meta p {
+  @apply text-[4.44vw] leading-[4.44vw];
+}
+
+.id {
+  @apply mt-[4.44vw] rounded-[2.22vw] border border-primary-red w-fit px-[4.44vw] py-[2.78vw] flex items-center gap-[2.22vw];
+}
+
+.copyIcon {
+  @apply relative w-[3.33vw] h-[3.89vw];
+}
+
+.content {
+  @apply mt-[6.67vw];
+}
+
+.getContainer {
+  @apply mt-[2.22vw];
+}

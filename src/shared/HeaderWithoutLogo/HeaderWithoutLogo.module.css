@@ -1,0 +1,7 @@
+.header {
+  @apply py-[4.44vw] flex justify-center bg-[#FBFBFB] font-medium;
+}
+
+.header h1 {
+  @apply text-[3.33vw] leading-[5vw];
+}

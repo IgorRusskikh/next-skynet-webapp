@@ -1,0 +1,40 @@
+.orderDetail {
+  @apply absolute top-0 left-0 w-full h-full bg-white pt-[6.67vw] font-medium pb-[11.11vw] overflow-scroll flex-1 flex flex-col justify-between;
+  max-height: calc(100dvh - 11.11vw);
+}
+
+.orderData {
+  @apply flex-1 flex flex-col;
+}
+
+.orderData p {
+  @apply text-[4.44vw] leading-[4.44vw];
+}
+
+.orderStatus {
+  @apply text-[3.33vw] leading-[5vw] px-[16px] py-[2.78vw] border-[0.28vw] border-primary-red w-fit rounded-[2.22vw] mt-[4.44vw];
+}
+
+.orderInfo {
+  @apply flex flex-col gap-[6.67vw] mt-[6.67vw];
+}
+
+.orderInfoInput {
+  @apply mt-0;
+}
+
+.actions {
+  @apply flex-1 flex justify-end flex-col gap-[2.22vw] mt-[11.11vw];
+}
+
+.actions button {
+  @apply h-[10.56vw] transition-colors duration-300;
+}
+
+.activeButton {
+  @apply !bg-primary-red text-white;
+}
+
+.cancelButton {
+  @apply border-[0.28vw] border-primary-red;
+}

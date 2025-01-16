@@ -1,1 +1,1 @@
-type currency = "RUB" | "USD" | "EURO";
+type currency = "RUB" | "USD" | "EURO" | "USDT";

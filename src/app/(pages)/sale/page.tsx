@@ -35,32 +35,32 @@ export default function SalePage() {
   return (
     <>
       <main className="min-h-[100dvh] flex flex-col">
-        {step < 3 && (
-          <Steps title="Продажа USDT" steps={2} currentStep={step} />
-        )}
-        <div className="container flex flex-col flex-1">
-          {step === 1 && (
-            <Offices nextStep={nextStep} setFormData={setFormData} />
-          )}
-          {step === 2 && (
-            <BuySellForm
-              verification
-              formData={formData}
-              setFormData={setFormData}
-              nextStep={nextStep}
-            />
-          )}
-          {step === 3 && (
-            <SuccessfullRequest
-              operation="sale"
-              verification
-              code="123456"
-              amount={10000}
-              currency="USDT"
-              manager="manager"
-            />
-          )}
+        <Steps title="Продажа USDT" steps={2} currentStep={step} />
+        <div className="container relative flex flex-col flex-1 overflow-hidden">
+          <Offices
+            step={step}
+            showPoint={1}
+            nextStep={nextStep}
+            setFormData={setFormData}
+          />
+          <BuySellForm
+            verification
+            formData={formData}
+            setFormData={setFormData}
+            step={step}
+            nextStep={nextStep}
+          />
         </div>
+
+        <SuccessfullRequest
+          operation="sale"
+          verification
+          code="123456"
+          amount={10000}
+          currency="USDT"
+          manager="manager"
+          show={step === 3}
+        />
       </main>
     </>
   );

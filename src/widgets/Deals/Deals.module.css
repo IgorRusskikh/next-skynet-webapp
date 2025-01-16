@@ -1,0 +1,64 @@
+.dealsContainer {
+  @apply mt-[3.33vw] container font-medium relative flex flex-col flex-1 overflow-clip;
+}
+
+.filters {
+  @apply flex gap-[2.22vw] items-center;
+}
+
+.filter {
+  @apply px-[3.89vw] py-[2.78vw] rounded-[2.22vw] flex-1 !h-[10.56vw] flex items-center gap-[1.11vw] text-[3.33vw] leading-[5vw] bg-transparent border border-[#F5F5F5] transition-colors duration-300;
+}
+
+.activeFilter {
+  @apply bg-[#FBFBFB];
+}
+
+.filter span {
+  @apply translate-y-[0.28vw] tracking-[-0.1vw];
+}
+
+.folderIcon {
+  @apply relative size-[3.89vw];
+}
+
+.filterDot {
+  @apply size-[3.89vw] rounded-full bg-primary-red;
+}
+
+.dealsList {
+  @apply transition-all duration-500 ease-in-out absolute top-0 left-0 w-full bg-[#FBFBFB]  overflow-scroll rounded-[3.33vw];
+  max-height: calc(100% - 11.11vw);
+}
+
+.deals {
+  @apply mt-[6.67vw] relative flex-1;
+}
+
+.dealIcon {
+  @apply relative size-[5vw];
+}
+
+.deal {
+  @apply flex items-center gap-[2.22vw] px-[4.44vw] py-[2.78vw] active:bg-primary-red active:text-white transition-all duration-300 w-full text-[3.33vw] leading-[5vw];
+}
+
+.deal:not(:first-child) {
+  @apply border-t border-t-[#F5F5F5];
+}
+
+.activeDealsShown {
+  @apply translate-x-0;
+}
+
+.archivedDealsHidden {
+  @apply -translate-x-full;
+}
+
+.archivedDealsShown {
+  @apply translate-x-0;
+}
+
+.activeDealsHidden {
+  @apply translate-x-full;
+}

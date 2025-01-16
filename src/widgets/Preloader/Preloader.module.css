@@ -1,0 +1,11 @@
+.preloader {
+  @apply fixed inset-0 flex items-center justify-center w-full h-full bg-white z-50 transition-all duration-700 ease-in-out translate-y-0;
+}
+
+.preloaderLoaded {
+  @apply translate-y-full;
+}
+
+.logo {
+  @apply relative w-[91.67vw] h-[7.9vw];
+}

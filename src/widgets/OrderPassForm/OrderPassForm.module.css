@@ -1,0 +1,23 @@
+.orderPassForm {
+  @apply flex-1 flex flex-col justify-between pb-[11.11vw] font-medium transition-transform duration-500 ease-in-out absolute top-0 left-0 w-full h-full bg-white;
+}
+
+.formShown {
+  @apply translate-x-0;
+}
+
+.formHidden {
+  @apply translate-x-full;
+}
+
+.form {
+  @apply flex-1 flex flex-col justify-between;
+}
+
+.actions button {
+  @apply h-[10.56vw] transition-colors duration-300;
+}
+
+.activeButton {
+  @apply !bg-primary-red text-white;
+}

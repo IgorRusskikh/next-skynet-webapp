@@ -1,0 +1,35 @@
+.instructionContainer {
+  @apply pb-[11.11vw] container;
+}
+
+.title {
+  @apply mt-[6.67vw] text-[4.44vw] leading-[4.44vw] font-medium;
+}
+
+.content {
+  @apply mt-[6.67vw];
+}
+
+.contentWrapper {
+  @apply p-[2.78vw] bg-[#FBFBFB] rounded-[2.22vw] mt-[6.67vw];
+}
+
+.step {
+  @apply text-[3.33vw] leading-[3.33vw] font-medium;
+}
+
+.instructions {
+  @apply mt-[3.33vw] text-[3.33vw] leading-[4.33vw] font-normal list-decimal list-outside pl-[5vw] text-[#1D1D1B];
+}
+
+.instructionImage {
+  @apply relative w-[61.11vw] h-[126.39vw] rounded-[2.22vw] overflow-clip mx-auto mt-[4.44vw];
+}
+
+.minSum {
+  @apply text-primary-red text-[3.33vw] leading-[4.33vw] pl-[5vw];
+}
+
+.defaultText {
+  @apply text-[3.33vw] leading-[4.33vw] pl-[5vw];
+}

@@ -1,9 +1,12 @@
 type cashToCashFormData = {
-  continent: string;
-  country: string;
-  city: string;
+  continentPay: string;
+  countryPay: string;
+  cityPay: string;
+  continentGet: string;
+  countryGet: string;
+  cityGet: string;
   payCurrency: string;
-  payAmount: number;
+  payAmount: string;
   getCurrency: string;
-  getAmount: number;
+  getAmount: string;
 };

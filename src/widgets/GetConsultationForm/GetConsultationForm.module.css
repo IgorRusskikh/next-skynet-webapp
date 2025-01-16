@@ -1,0 +1,31 @@
+.container {
+  @apply flex flex-1 flex-col gap-4 font-medium pb-[11.11vw];
+}
+
+.form {
+  @apply flex-1 flex flex-col;
+}
+
+.question {
+  @apply mt-[6.67vw];
+}
+
+.question label {
+  @apply text-[4.44vw] leading-[4.44vw];
+}
+
+.question textarea {
+  @apply text-[3.33vw] leading-[5vw] h-[27.78vw] px-[4.44vw] py-[2.78vw] mt-[6.67vw] bg-[#FBFBFB] w-full rounded-[2.78vw];
+}
+
+.actions {
+  @apply flex flex-1 items-end mt-[6.67vw] transition-colors duration-300;
+}
+
+.actions button {
+  @apply h-[10.56vw];
+}
+
+.activeButton {
+  @apply !bg-primary-red text-white;
+}

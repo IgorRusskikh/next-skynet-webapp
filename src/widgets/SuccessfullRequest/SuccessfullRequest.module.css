@@ -3,15 +3,15 @@
 }
 
 .successfullScreenHidden {
-  @apply top-[100vh];
+  @apply top-[100vh] invisible;
 }
 
 .successfullScreenShown {
-  @apply top-0;
+  @apply top-0 visible;
 }
 
 .content {
-  @apply mt-[68.61vw] font-medium flex flex-col flex-1;
+  @apply mt-[68.61vw] font-medium flex flex-col flex-1 container;
 }
 
 .codeInput {

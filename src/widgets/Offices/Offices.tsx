@@ -1,19 +1,33 @@
-import React, { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction } from "react";
 
 import { Button } from "@/shared/ui/Button";
 import Image from "next/image";
 import InputWithLabel from "@/shared/InputWithLabel/InputWithLabel";
 import styles from "./Offices.module.css";
-import { usdtFormData } from "@/types/usdtFormData";
 
-interface Props {
+interface Props<T> {
+  step: number;
+  showPoint: number;
   nextStep: Dispatch<void>;
-  setFormData: Dispatch<SetStateAction<usdtFormData>>;
+  setFormData: Dispatch<SetStateAction<T>>;
 }
 
-const Offices = ({ nextStep, setFormData }: Props) => {
+const Offices = <T extends { address: string }>({
+  step,
+  nextStep,
+  setFormData,
+  showPoint,
+}: Props<T>) => {
   return (
-    <div className={`${styles.offices}`}>
+    <div
+      className={`${styles.offices} ${
+        showPoint === step
+          ? styles.officesShown
+          : step > showPoint
+          ? ""
+          : styles.officesHidden
+      }`}
+    >
       <div>
         <InputWithLabel
           label="Выберите офис для посещения"
@@ -60,14 +74,19 @@ const Offices = ({ nextStep, setFormData }: Props) => {
   );
 };
 
-interface IAddressesProps {
+interface IAddressesProps<T> {
   city: string;
   streets: string[];
   nextStep: () => void;
-  setFormData: Dispatch<SetStateAction<usdtFormData>>;
+  setFormData: Dispatch<SetStateAction<T>>;
 }
 
-function Addresses({ city, streets, nextStep, setFormData }: IAddressesProps) {
+function Addresses<T extends { address: string }>({
+  city,
+  streets,
+  nextStep,
+  setFormData,
+}: IAddressesProps<T>) {
   const onClick = (street: string) => {
     setFormData((prev) => ({ ...prev, address: street }));
   };

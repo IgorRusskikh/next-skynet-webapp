@@ -1,0 +1,15 @@
+.emptyRequests {
+  @apply container mt-[61.94vw];
+}
+
+.icon {
+  @apply relative size-[16.67vw] mx-auto;
+}
+
+.container p {
+  @apply text-[4.44vw] leading-[4.44vw] text-center mt-[4.44vw];
+}
+
+.container button {
+  @apply h-[10.56vw] !bg-primary-red text-white mt-[6.67vw];
+}

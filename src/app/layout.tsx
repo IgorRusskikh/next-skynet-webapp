@@ -1,6 +1,7 @@
 import "./globals.css";
 
 import type { Metadata } from "next";
+import { PreloaderProvider } from "@/shared/contexts/PreloaderContext";
 import { ttNorms } from "@/features/utils/fonts";
 
 export const metadata: Metadata = {
@@ -15,7 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${ttNorms.className} antialiased`}>{children}</body>
+      <body className={`${ttNorms.className} antialiased`}>
+        <PreloaderProvider>{children}</PreloaderProvider>
+      </body>
     </html>
   );
 }

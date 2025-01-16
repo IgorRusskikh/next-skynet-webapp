@@ -5,15 +5,21 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   title: string;
   steps?: number;
   currentStep: number;
+  showSteps?: boolean;
 }
 
-export default function Steps({ title, steps = 1, currentStep }: Props) {
+export default function Steps({
+  title,
+  steps = 1,
+  currentStep,
+  showSteps = true,
+}: Props) {
   return (
     <div className={`${styles.container}`}>
       <p className={`${styles.header}`}>{title}</p>
 
       <div
-        className={`${styles.steps}`}
+        className={`${styles.steps} ${showSteps ? "" : styles.hideSteps}`}
         style={{
           gridTemplateColumns: `repeat(${steps}, 1fr)`,
         }}

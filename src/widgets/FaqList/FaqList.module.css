@@ -1,0 +1,47 @@
+.faqList {
+  @apply mt-[6.67vw] pb-[11.11vw] font-medium flex flex-col gap-[2.22vw];
+}
+
+.faqItem {
+  @apply rounded-[10.56vw];
+}
+
+.itemHeader {
+  @apply flex items-center justify-between bg-[#FBFBFB] px-[4.44vw] py-[2.78vw] rounded-[2.78vw];
+}
+
+.itemTitle {
+  @apply text-[3.33vw] leading-[5vw];
+}
+
+.answerContainer {
+  @apply transition-all duration-500 ease-in-out overflow-clip;
+}
+
+.itemAnswer {
+  @apply text-[3.33vw] leading-[4.33vw] font-normal rounded-[2.78vw] bg-[#FBFBFB] px-[4.44vw] py-[2.78vw];
+}
+
+.itemAnswerShown {
+  @apply mt-[2.22vw];
+}
+
+.itemAnswerHidden {
+  @apply max-h-[0px] mt-0;
+}
+
+.itemIcon {
+  @apply size-[5vw] relative flex justify-center items-center border-[0.28vw] border-primary-red rounded-full p-[1.11vw];
+}
+
+.horLine {
+  @apply w-full h-[0.28vw] bg-primary-red rounded-full;
+}
+
+.verLine {
+  @apply w-[0.28vw] h-[2.5vw] bg-primary-red rounded-full absolute left-[47%] top-[24%] transition-all duration-500 ease-in-out;
+}
+
+.verLineOpen {
+  @apply rotate-90 left-[47%] top-[21%];
+}

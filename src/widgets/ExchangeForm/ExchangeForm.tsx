@@ -2,13 +2,27 @@
 
 import { Button } from "@/shared/ui/Button";
 import Image from "next/image";
-import Link from "next/link";
 import Select from "@/shared/ui/Select/Select";
 import styles from "./ExchangeForm.module.css";
+import { usePreloader } from "@/shared/contexts/PreloaderContext";
 import { useRouter } from "next/navigation";
 
 export default function ExchangeForm() {
   const router = useRouter();
+
+  const { setIsLoaded, setPreloaderTimeout } = usePreloader();
+
+  const onClickPurchase = () => {
+    setIsLoaded(false);
+    setPreloaderTimeout(1000);
+    setTimeout(() => router.push("/purchase"), 400);
+  };
+
+  const onClickSale = () => {
+    setIsLoaded(false);
+    setPreloaderTimeout(1000);
+    setTimeout(() => router.push("/sale"), 400);
+  };
 
   return (
     <div className={`${styles.form}`}>
@@ -33,13 +47,13 @@ export default function ExchangeForm() {
       </div>
 
       <div className={`${styles.actions}`}>
-        <Button onClick={() => router.push("/purchase")}>
+        <Button onClick={onClickPurchase}>
           Купить USDT{" "}
           <div className={`${styles.arrow}`}>
             <Image src="/red-arrow.png" fill alt="Buy" />
           </div>
         </Button>
-        <Button onClick={() => router.push("/sale")}>
+        <Button onClick={onClickSale}>
           Продать USDT
           <div className={`${styles.arrow} ${styles.rotatedArrow}`}>
             <Image src="/red-arrow.png" fill alt="Sell" />

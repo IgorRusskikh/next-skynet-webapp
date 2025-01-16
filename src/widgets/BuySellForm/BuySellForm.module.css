@@ -1,5 +1,13 @@
 .form {
-  @apply container mt-[6.67vw] font-medium flex flex-1 flex-col justify-between pb-[11.11vw];
+  @apply container mt-[6.67vw] font-medium flex flex-1 flex-col justify-between pb-[11.11vw] absolute top-0 left-0 w-full h-full bg-white transition-all duration-500 ease-in-out;
+}
+
+.formShown {
+  @apply translate-x-0;
+}
+
+.formHidden {
+  @apply translate-x-full;
 }
 
 .currenciesContainer p {
@@ -15,7 +23,7 @@
 }
 
 .activeCurrency {
-  @apply bg-primary-red text-white;
+  @apply !bg-primary-red text-white;
 }
 
 .amounts {

@@ -1,0 +1,15 @@
+.orders {
+  @apply mt-[6.67vw] font-medium;
+}
+
+.order {
+  @apply bg-[#FBFBFB] rounded-[3.33vw] px-[4.44vw] py-[2.78vw];
+}
+
+.status {
+  @apply border-[0.28vw] border-primary-red rounded-[13.89vw] px-[2.22vw] text-[2.78vw] leading-[4.17vw] w-fit;
+}
+
+.orderTitle {
+  @apply text-[3.33vw] leading-[5vw] mt-[2.22vw];
+}

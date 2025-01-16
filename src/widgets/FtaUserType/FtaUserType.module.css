@@ -1,0 +1,52 @@
+.ftaUserType {
+  @apply mt-[6.67vw] font-medium pb-[11.11vw] flex flex-col justify-between flex-1;
+}
+
+.topContent p {
+  @apply text-[4.44vw] leading-[4.44vw];
+}
+
+.buttons {
+  @apply flex flex-col gap-[2.22vw] text-[3.33vw] leading-[5vw];
+}
+
+.arrow {
+  @apply relative w-[2.78vw] h-[3.89vw] ml-[1.11vw];
+}
+
+.rotatedArrow {
+  @apply rotate-180;
+}
+
+.separator {
+  @apply after:content-[''] after:absolute after:w-full after:h-[1px] after:bg-[#F4F4F4] after:top-[50%] after:left-0 -z-10;
+  @apply text-[3.33vw] leading-[5vw] text-[#686868] text-center my-[11.11vw] relative flex justify-center items-center;
+}
+
+.separator p {
+  @apply !bg-white relative z-10 w-fit px-[2.78vw];
+}
+
+.bottomContent {
+  @apply flex flex-col gap-[6.67vw];
+}
+
+.textArea label {
+  @apply text-[4.44vw] leading-[4.44vw];
+}
+
+.textArea textarea {
+  @apply text-[3.33vw] leading-[5vw] placeholder:text-[#E0E0E0] bg-[#FBFBFB] rounded-[2.78vw] px-[4.44vw] py-[2.78vw] w-full h-[27.78vw];
+}
+
+.actions {
+  @apply flex justify-end;
+}
+
+.actions button {
+  @apply h-[10.56vw] transition-all duration-300 ease-in-out rounded-[3.33vw] bg-[#EAEAEA];
+}
+
+.activeButton {
+  @apply !bg-primary-red text-white;
+}

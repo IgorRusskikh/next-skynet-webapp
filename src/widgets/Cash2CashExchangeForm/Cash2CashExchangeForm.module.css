@@ -1,5 +1,5 @@
 .formWrapper {
-  @apply mt-[6.67vw] font-medium pb-[11.11vw] flex flex-1 bg-white absolute top-0 transition-all duration-500 ease-in-out h-full w-full;
+  @apply pt-[6.67vw] font-medium pb-[11.11vw] flex flex-1 bg-white absolute top-0 transition-all duration-500 ease-in-out h-full w-full;
 }
 
 .formWrapperHidden {

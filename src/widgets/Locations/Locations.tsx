@@ -24,9 +24,34 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 const Locations = ({ step, nextStep, setFormData, className }: Props) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const onClickContinent = (continent: string) => {
+  const onClickContinentPay = (continent: string) => {
     nextStep();
-    setFormData((prev) => ({ ...prev, continent: continent }));
+    setFormData((prev) => ({ ...prev, continentPay: continent }));
+  };
+
+  const onClickCountryPay = (country: string) => {
+    nextStep();
+    setFormData((prev) => ({ ...prev, countryPay: country }));
+  };
+
+  const onClickCityPay = (city: string) => {
+    nextStep();
+    setFormData((prev) => ({ ...prev, cityPay: city }));
+  };
+
+  const onClickContinentGet = (continent: string) => {
+    nextStep();
+    setFormData((prev) => ({ ...prev, continentGet: continent }));
+  };
+
+  const onClickCountryGet = (country: string) => {
+    nextStep();
+    setFormData((prev) => ({ ...prev, countryGet: country }));
+  };
+
+  const onClickCityGet = (city: string) => {
+    nextStep();
+    setFormData((prev) => ({ ...prev, cityGet: city }));
   };
 
   const labels = [
@@ -50,13 +75,14 @@ const Locations = ({ step, nextStep, setFormData, className }: Props) => {
         <LocationsList
           step={step}
           locations={Array(6).fill("Евразия")}
-          locationOnClick={onClickContinent}
+          locationOnClick={onClickContinentPay}
+          className={`${styles.continents}`}
         />
 
         <LocationsList
           step={step}
           locations={Array(50).fill("Евразия")}
-          locationOnClick={onClickContinent}
+          locationOnClick={onClickCountryPay}
           containerRef={containerRef}
           className={`${styles.absoluteList} ${
             step === 2
@@ -70,7 +96,7 @@ const Locations = ({ step, nextStep, setFormData, className }: Props) => {
         <LocationsList
           step={step}
           locations={Array(50).fill("Евразия")}
-          locationOnClick={onClickContinent}
+          locationOnClick={onClickCityPay}
           containerRef={containerRef}
           className={`${styles.absoluteList} ${
             step === 3
@@ -84,7 +110,7 @@ const Locations = ({ step, nextStep, setFormData, className }: Props) => {
         <LocationsList
           step={step}
           locations={Array(5).fill("Евразия")}
-          locationOnClick={onClickContinent}
+          locationOnClick={onClickContinentGet}
           containerRef={containerRef}
           className={`${styles.absoluteList} ${
             step === 4
@@ -98,7 +124,7 @@ const Locations = ({ step, nextStep, setFormData, className }: Props) => {
         <LocationsList
           step={step}
           locations={Array(50).fill("Евразия")}
-          locationOnClick={onClickContinent}
+          locationOnClick={onClickCountryGet}
           containerRef={containerRef}
           className={`${styles.absoluteList} ${
             step === 5
@@ -112,7 +138,7 @@ const Locations = ({ step, nextStep, setFormData, className }: Props) => {
         <LocationsList
           step={step}
           locations={Array(10).fill("Евразия")}
-          locationOnClick={onClickContinent}
+          locationOnClick={onClickCityGet}
           containerRef={containerRef}
           className={`${styles.absoluteList} ${
             step === 6
@@ -197,7 +223,7 @@ function LocationsList({
         <button
           key={inx}
           className={`${styles.location}`}
-          onClick={() => locationOnClick(inx.toString())}
+          onClick={() => locationOnClick("Северная Америка")}
         >
           Северная Америка
         </button>

@@ -1,5 +1,13 @@
 .offices {
-  @apply container flex flex-col justify-between font-medium h-full flex-1 pb-[11.11vw];
+  @apply absolute top-0 left-0 flex flex-col justify-between font-medium w-full h-full flex-1 pb-[11.11vw] bg-white transition-transform duration-500 ease-in-out;
+}
+
+.officesShown {
+  @apply translate-x-0;
+}
+
+.officesHidden {
+  @apply translate-x-full;
 }
 
 .icon {
