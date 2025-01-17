@@ -1,5 +1,6 @@
 "use client";
 
+import { offBackButtonClick, onBackButtonClick } from "@telegram-apps/sdk";
 import { useEffect, useState } from "react";
 
 import BuySellForm from "@/widgets/BuySellForm";
@@ -24,28 +25,30 @@ export default function SalePage() {
   useEffect(() => {
     if (typeof window !== "undefined" && window.Telegram) {
       WebApp.ready();
-      backButton.mount();
-      backButton.show();
     }
   }, []);
 
   useEffect(() => {
+    backButton.mount();
+    backButton.show();
+
     if (backButton.isMounted()) {
       const backButtonListener = () => {
         if (backButton.onClick.isAvailable()) {
-          console.log(step);
-          if (step > 1) {
-            prevStep();
-          } else {
+          console.log("Current step:", step);
+          if (step <= 1) {
             router.push("/");
+          } else {
+            prevStep();
           }
         }
       };
 
-      const offClick = backButton.onClick(backButtonListener);
+      const offClick = onBackButtonClick(backButtonListener);
 
       return () => {
-        backButton.offClick(offClick);
+        offBackButtonClick(offClick);
+        backButton.unmount();
       };
     }
   }, [step]);
