@@ -3,5 +3,5 @@
 }
 
 .inputWrapper input {
-  @apply flex-1 text-[3.33vw] leading-[5vw] bg-transparent outline-none placeholder:text-[#E0E0E0] pr-[2.22vw];
+  @apply flex-1 text-[3.33vw] leading-[5vw] bg-transparent outline-none placeholder:text-[#E0E0E0] pr-[2.22vw] border border-transparent active:border-primary-red transition-colors duration-300;
 }

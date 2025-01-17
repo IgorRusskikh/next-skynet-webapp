@@ -7,7 +7,7 @@
 }
 
 .link {
-  @apply px-[4.44vw] py-[2.78vw] flex gap-[2.22vw] text-[3.33vw] leading-[4vw];
+  @apply px-[4.44vw] py-[2.78vw] flex gap-[2.22vw] text-[3.33vw] leading-[4vw] active:bg-primary-red active:text-white transition-colors duration-300;
 }
 
 .linkBorder {

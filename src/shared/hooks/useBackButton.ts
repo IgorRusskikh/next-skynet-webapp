@@ -1,12 +1,11 @@
-"use client";
-
 import {
   backButton,
   offBackButtonClick,
   onBackButtonClick,
 } from "@telegram-apps/sdk";
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useRef } from "react";
 
+import { usePreloader } from "../contexts/PreloaderContext";
 import { useRouter } from "next/navigation";
 
 interface UseBackButtonProps {
@@ -15,24 +14,34 @@ interface UseBackButtonProps {
 }
 
 export const useBackButton = ({ step, setStep }: UseBackButtonProps) => {
+  const stepRef = useRef(step);
   const router = useRouter();
+
+  const { setIsLoaded } = usePreloader();
+
+  useEffect(() => {
+    stepRef.current = step;
+  }, [step]);
 
   const goToHomePage = useCallback(() => {
     router.push("/");
   }, [router]);
 
-  const prevStep = () => {
+  const prevStep = useCallback(() => {
     setStep((prev) => Math.max(prev - 1, 1));
-  };
+  }, []);
 
   const backButtonListener = useCallback(() => {
-    console.log("Back button pressed. Current step:", step);
-    if (step > 1) {
-      prevStep();
-    } else {
-      goToHomePage();
+    if (backButton.onClick.isAvailable()) {
+      console.log("Current step:", stepRef.current);
+      if (stepRef.current <= 1) {
+        setIsLoaded(false);
+        goToHomePage();
+      } else {
+        prevStep();
+      }
     }
-  }, [step, prevStep, goToHomePage]);
+  }, [goToHomePage, prevStep]);
 
   useEffect(() => {
     backButton.mount();
@@ -46,9 +55,5 @@ export const useBackButton = ({ step, setStep }: UseBackButtonProps) => {
         backButton.unmount();
       };
     }
-
-    return () => {
-      backButton.unmount();
-    };
-  }, [step]);
+  }, [backButtonListener]);
 };
