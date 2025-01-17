@@ -53,8 +53,6 @@ export default function SalePage() {
     if (backButton.onClick.isAvailable()) {
       if (step > 1) {
         prevStep();
-      } else {
-        WebApp;
       }
     }
   };
