@@ -27,8 +27,7 @@ export default function SalePage() {
 
       if (backButton.isMounted()) {
         backButton.show();
-        const offClick = backButton.onClick(backButtonListener);
-        offClick();
+        backButton.onClick(backButtonListener);
       }
     }
   }, []);
