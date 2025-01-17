@@ -15,7 +15,7 @@
 }
 
 .addresses {
-  @apply mt-[6.67vw] flex flex-col gap-[4.44vw] flex-1;
+  @apply mt-[6.67vw] flex flex-col gap-[4.44vw] flex-1 max-h-[84.44vw] overflow-scroll;
 }
 
 .office {

@@ -22,11 +22,11 @@ export default function FTAPage() {
   const [formData, setFormData] = useState<ftaFormData>(clearedFormData);
 
   return (
-    <main className="min-h-[100dvh] flex flex-col relative overflow-hidden">
+    <main className="min-h-[100dvh] relative flex flex-col overflow-clip">
       {step < steps + 1 && (
         <Steps title="Платежи для ВЭД" steps={steps - 1} currentStep={step} />
       )}
-      <div className="container relative flex-1 flex flex-col overflow-clip">
+      <div className="flex flex-col relative overflow-clip h-full flex-1 container">
         <FtaUserType
           formData={formData}
           setFormData={setFormData}

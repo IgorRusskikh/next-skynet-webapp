@@ -8,12 +8,12 @@ import { init } from "@telegram-apps/sdk";
 import { useEffect } from "react";
 
 export default function Home() {
-  useEffect(() => {
-    init();
-    if (typeof window !== "undefined" && window.Telegram) {
-      WebApp.ready();
-    }
-  }, []);
+  // useEffect(() => {
+  //   init();
+  //   if (typeof window !== "undefined" && window.Telegram) {
+  //     WebApp.ready();
+  //   }
+  // }, []);
 
   return (
     <section className="relative overflow-hidden">

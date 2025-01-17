@@ -54,6 +54,20 @@ const Offices = <T extends { address: string }>({
       nextStep={nextStep}
       setFormData={setFormData}
     />,
+    <Addresses
+      key="Дубай"
+      city="Дубай"
+      streets={["ул. улица, 18, офис 203"]}
+      nextStep={nextStep}
+      setFormData={setFormData}
+    />,
+    <Addresses
+      key="Дубай"
+      city="Дубай"
+      streets={["ул. улица, 18, офис 203"]}
+      nextStep={nextStep}
+      setFormData={setFormData}
+    />,
   ]);
 
   const onChangeSearch = (e: ChangeEvent<HTMLInputElement>) => {

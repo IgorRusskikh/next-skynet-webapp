@@ -18,7 +18,7 @@ export default function SalePage() {
     amount: "",
   });
 
-  useBackButton({ step, setStep });
+  // useBackButton({ step, setStep });
 
   useEffect(() => {
     if (typeof window !== "undefined" && window.Telegram) {

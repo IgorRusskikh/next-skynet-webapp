@@ -40,6 +40,14 @@ const SuccessfulRequest = ({
     setIsClient(true);
   }, []);
 
+  useEffect(() => {
+    if (show) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [show]);
+
   const copyToClipboard = async () => {
     if (!isClient) return;
 

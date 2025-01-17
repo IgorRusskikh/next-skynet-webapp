@@ -64,6 +64,7 @@ const FtaUserType = ({ formData, setFormData, nextStep }: Props) => {
             placeholder="Страна"
             value={formData.invoiceCity}
             setValue={sendInvoiceOnChange}
+            containerClassName={`${styles.inputContainer}`}
           />
 
           <div className={`${styles.textArea}`}>

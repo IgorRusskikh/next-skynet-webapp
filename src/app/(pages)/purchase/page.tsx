@@ -18,7 +18,7 @@ export default function PurchasePage() {
     amount: "",
   });
 
-  useBackButton({ step, setStep });
+  // useBackButton({ step, setStep });
 
   const nextStep = () => {
     setStep((prev) => {

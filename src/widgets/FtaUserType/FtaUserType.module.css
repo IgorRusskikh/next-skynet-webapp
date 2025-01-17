@@ -7,11 +7,15 @@
 }
 
 .buttons {
-  @apply flex flex-col gap-[2.22vw] text-[3.33vw] leading-[5vw];
+  @apply flex flex-col gap-[2.22vw] text-[3.33vw] leading-[5vw] mt-[6.67vw];
 }
 
 .buttons button {
   @apply active:!bg-primary-red active:text-white;
+}
+
+.inputContainer {
+  @apply mt-0;
 }
 
 .arrow {

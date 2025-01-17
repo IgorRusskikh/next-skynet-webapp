@@ -1,5 +1,5 @@
 .successfullScreen {
-  @apply transition-all duration-500 ease-in-out absolute bg-white min-h-[100dvh] flex flex-col pb-[11.11vw] w-full;
+  @apply transition-all duration-500 ease-in-out fixed bg-white min-h-[100dvh] flex flex-col pb-[11.11vw] w-full;
 }
 
 .successfullScreenHidden {
@@ -19,11 +19,11 @@
 }
 
 .input {
-  @apply w-[10.28vw] h-[12.22vw] rounded-[3.33vw] bg-[#FBFBFB] text-[10vw] leading-[10vw] flex justify-center items-center px-[2.78vw] text-center;
+  @apply w-[10.28vw] h-[12.22vw] rounded-[3.33vw] bg-[#FBFBFB] text-[10vw] leading-[10vw] flex justify-center items-center px-[2.78vw] text-center cursor-pointer;
 }
 
 .iconWrapper {
-  @apply w-[10.28vw] h-[12.22vw] rounded-[3.33vw] bg-[#FBFBFB] flex justify-center items-center;
+  @apply w-[10.28vw] h-[12.22vw] rounded-[3.33vw] bg-[#FBFBFB] flex justify-center items-center cursor-pointer;
 }
 
 .copyIcon {
