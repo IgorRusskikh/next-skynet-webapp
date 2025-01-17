@@ -24,26 +24,27 @@ export default function SalePage() {
   useEffect(() => {
     if (typeof window !== "undefined" && window.Telegram) {
       WebApp.ready();
-      console.log(WebApp);
-
       backButton.mount();
-
-      if (backButton.isMounted()) {
-        const backButtonListener = () => {
-          if (backButton.onClick.isAvailable()) {
-            if (step > 1) {
-              prevStep();
-            } else {
-              router.push("/");
-            }
-          }
-        };
-
-        backButton.show();
-        backButton.onClick(backButtonListener);
-      }
     }
   }, []);
+
+  useEffect(() => {
+    if (backButton.isMounted()) {
+      const backButtonListener = () => {
+        if (backButton.onClick.isAvailable()) {
+          console.log(step);
+          if (step > 1) {
+            prevStep();
+          } else {
+            router.push("/");
+          }
+        }
+      };
+
+      backButton.show();
+      backButton.onClick(backButtonListener);
+    }
+  }, [step]);
 
   const nextStep = () => {
     setStep((prev) => {
