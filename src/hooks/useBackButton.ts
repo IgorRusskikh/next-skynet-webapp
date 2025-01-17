@@ -37,7 +37,7 @@ export const useBackButton = ({ step, setStep }: UseBackButtonProps) => {
     } else {
       goToHomePage();
     }
-  }, [goToHomePage, prevStep]);
+  }, [prevStep, router]);
 
   useEffect(() => {
     backButton.mount();
