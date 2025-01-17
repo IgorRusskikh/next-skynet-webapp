@@ -25,6 +25,7 @@ export default function SalePage() {
     if (typeof window !== "undefined" && window.Telegram) {
       WebApp.ready();
       backButton.mount();
+      backButton.show();
     }
   }, []);
 
@@ -41,8 +42,11 @@ export default function SalePage() {
         }
       };
 
-      backButton.show();
-      backButton.onClick(backButtonListener);
+      const offClick = backButton.onClick(backButtonListener);
+
+      return () => {
+        backButton.offClick(offClick);
+      };
     }
   }, [step]);
 
