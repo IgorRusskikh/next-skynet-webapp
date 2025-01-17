@@ -10,6 +10,10 @@
   @apply flex flex-col gap-[2.22vw] text-[3.33vw] leading-[5vw];
 }
 
+.buttons button {
+  @apply active:!bg-primary-red active:text-white;
+}
+
 .arrow {
   @apply relative w-[2.78vw] h-[3.89vw] ml-[1.11vw];
 }

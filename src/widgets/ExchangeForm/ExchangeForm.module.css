@@ -42,6 +42,10 @@
   @apply flex gap-[2.22vw];
 }
 
+.actions button {
+  @apply active:!bg-primary-red active:text-white;
+}
+
 .arrow {
   @apply relative w-[2.78vw] h-[3.89vw] inline-block items-end ml-[1.11vw] mb-[0.8vw];
 }

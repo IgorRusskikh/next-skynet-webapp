@@ -12,7 +12,6 @@ export default function Home() {
     init();
     if (typeof window !== "undefined" && window.Telegram) {
       WebApp.ready();
-      console.log(WebApp);
     }
   }, []);
 

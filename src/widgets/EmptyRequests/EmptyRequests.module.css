@@ -11,5 +11,5 @@
 }
 
 .container button {
-  @apply h-[10.56vw] !bg-primary-red text-white mt-[6.67vw];
+  @apply h-[10.56vw] !bg-primary-red text-white mt-[6.67vw] active:!bg-primary-red active:text-white;
 }

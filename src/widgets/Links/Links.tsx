@@ -48,7 +48,7 @@ function InnerLinks() {
     evt.preventDefault();
     setIsLoaded(false);
     setPreloaderTimeout(1000);
-    setTimeout(() => router.push(link), 400);
+    setTimeout(() => router.push(link), 500);
   };
 
   return (
