@@ -21,9 +21,9 @@ export const useBackButton = ({ step, setStep }: UseBackButtonProps) => {
     router.push("/");
   }, [router]);
 
-  const prevStep = useCallback(() => {
+  const prevStep = () => {
     setStep((prev) => Math.max(prev - 1, 1));
-  }, [setStep]);
+  };
 
   const backButtonListener = useCallback(() => {
     console.log("Back button pressed. Current step:", step);
@@ -46,5 +46,9 @@ export const useBackButton = ({ step, setStep }: UseBackButtonProps) => {
         backButton.unmount();
       };
     }
+
+    return () => {
+      backButton.unmount();
+    };
   }, [backButtonListener]);
 };
