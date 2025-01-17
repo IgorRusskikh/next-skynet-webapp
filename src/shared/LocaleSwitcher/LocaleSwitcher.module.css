@@ -1,5 +1,5 @@
 .switcher {
-  @apply w-[14.44vw];
+  @apply w-[14.44vw] !cursor-pointer;
 }
 
 .select {

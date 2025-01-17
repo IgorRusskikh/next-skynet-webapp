@@ -21,18 +21,22 @@ const innerLinks = [
   {
     name: "Cash2Cash",
     link: "cash2cash",
+    icon: "/inner-links/wallet.png",
   },
   {
     name: "Платежи для ВЭД",
     link: "fta",
+    icon: "/inner-links/papers.png",
   },
   {
     name: "Мои сделки",
     link: "transactions",
+    icon: "/inner-links/folder.png",
   },
   {
     name: "Заказать пропуск",
     link: "order-pass",
+    icon: "/inner-links/card.png",
   },
 ];
 
@@ -53,7 +57,7 @@ function InnerLinks() {
 
   return (
     <div className={`${styles.container}`}>
-      {innerLinks.map(({ name, link }, inx) => (
+      {innerLinks.map(({ name, link, icon }, inx) => (
         <CustomLink
           key={inx}
           href={link}
@@ -61,12 +65,7 @@ function InnerLinks() {
           className={`${styles.link} ${inx > 0 ? styles.linkBorder : ""}`}
         >
           <div className={`${styles.icon}`}>
-            <Image
-              src="/inner-links/wallet.png"
-              fill
-              alt="Wallet"
-              className="object-contain"
-            />
+            <Image src={icon} fill alt="Wallet" className="object-contain" />
           </div>
 
           <span>{name}</span>

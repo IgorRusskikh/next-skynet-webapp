@@ -1,5 +1,6 @@
 .offices {
-  @apply absolute top-0 left-0 flex flex-col justify-between font-medium w-full h-full flex-1 pb-[11.11vw] bg-white transition-transform duration-500 ease-in-out;
+  @apply absolute top-0 left-0 flex flex-col justify-between font-medium w-full h-full flex-1 pb-[11.11vw] bg-white transition-transform duration-500 ease-in-out overflow-scroll;
+  max-height: calc(100dvh - 11.11vw);
 }
 
 .officesShown {
@@ -15,7 +16,7 @@
 }
 
 .addresses {
-  @apply mt-[6.67vw] flex flex-col gap-[4.44vw] flex-1 max-h-[80.44vw] overflow-scroll;
+  @apply mt-[6.67vw] flex flex-col gap-[4.44vw] flex-1 overflow-scroll;
 }
 
 .office {
@@ -28,6 +29,10 @@
 
 .street {
   @apply px-[4.44vw] py-[2.78vw] bg-[#FBFBFB] rounded-[2.78vw] active:bg-primary-red active:text-white transition-colors;
+}
+
+.contactWithManager {
+  @apply mt-[6.67vw];
 }
 
 .contactWithManager p {

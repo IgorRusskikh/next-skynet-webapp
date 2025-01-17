@@ -96,12 +96,14 @@ const Offices = <T extends { address: string }>({
           </div>
         </InputWithLabel>
 
-        <div className={`${styles.addresses}`}>{offices}</div>
-      </div>
+        <div className={`${styles.addresses}`}>
+          {offices}
 
-      <div className={`${styles.contactWithManager}`}>
-        <p>Не нашли нужный офис?</p>
-        <Button>Свяжитесь с менеджером</Button>
+          <div className={`${styles.contactWithManager}`}>
+            <p>Не нашли нужный офис?</p>
+            <Button>Свяжитесь с менеджером</Button>
+          </div>
+        </div>
       </div>
     </div>
   );

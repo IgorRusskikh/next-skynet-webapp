@@ -26,7 +26,7 @@ export default function Cash2CashPage() {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState<cashToCashFormData>(clearFormData);
 
-  useBackButton({ step, setStep });
+  // useBackButton({ step, setStep });
 
   const nextStep = () => {
     setStep((prev) => {
