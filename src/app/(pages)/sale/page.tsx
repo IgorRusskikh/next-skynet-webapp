@@ -1,70 +1,30 @@
 "use client";
 
-import { offBackButtonClick, onBackButtonClick } from "@telegram-apps/sdk";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import BuySellForm from "@/widgets/BuySellForm";
 import Offices from "@/widgets/Offices";
 import Steps from "@/shared/Steps/Steps";
 import SuccessfullRequest from "@/widgets/SuccessfullRequest";
 import WebApp from "@twa-dev/sdk";
-import { backButton } from "@telegram-apps/sdk";
 import { usdtFormData } from "@/types/usdtFormData";
-import { useRouter } from "next/navigation";
+import { useBackButton } from "@/shared/hooks/useBackButton";
 
 export default function SalePage() {
   const [step, setStep] = useState(1);
-  const stepRef = useRef(1);
   const [formData, setFormData] = useState<usdtFormData>({
     address: "",
     currency: "RUB",
     amount: "",
   });
 
-  const router = useRouter();
+  useBackButton({ step, setStep });
 
   useEffect(() => {
     if (typeof window !== "undefined" && window.Telegram) {
       WebApp.ready();
     }
   }, []);
-
-  useEffect(() => {
-    stepRef.current = step;
-  }, [step]);
-
-  const goToHomePage = useCallback(() => {
-    router.push("/");
-  }, [router]);
-
-  const prevStep = useCallback(() => {
-    setStep((prev) => Math.max(prev - 1, 1));
-  }, []);
-
-  const backButtonListener = useCallback(() => {
-    if (backButton.onClick.isAvailable()) {
-      console.log("Current step:", stepRef.current);
-      if (stepRef.current <= 1) {
-        goToHomePage();
-      } else {
-        prevStep();
-      }
-    }
-  }, [goToHomePage, prevStep]);
-
-  useEffect(() => {
-    backButton.mount();
-    backButton.show();
-
-    if (backButton.isMounted()) {
-      const offClick = onBackButtonClick(backButtonListener);
-
-      return () => {
-        offBackButtonClick(offClick);
-        backButton.unmount();
-      };
-    }
-  }, [backButtonListener]);
 
   const nextStep = useCallback(() => {
     setStep((prev) => Math.min(prev + 1, 3));

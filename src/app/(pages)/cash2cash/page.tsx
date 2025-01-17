@@ -4,6 +4,7 @@ import Cash2CashExchangeForm from "@/widgets/Cash2CashExchangeForm";
 import Locations from "@/widgets/Locations";
 import Steps from "@/shared/Steps/Steps";
 import SuccessfulRequest from "@/widgets/SuccessfullRequest";
+import { useBackButton } from "@/hooks/useBackButton";
 import { useState } from "react";
 
 const clearFormData: cashToCashFormData = {
@@ -24,6 +25,8 @@ const steps = 8;
 export default function Cash2CashPage() {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState<cashToCashFormData>(clearFormData);
+
+  useBackButton({ step, setStep });
 
   const nextStep = () => {
     setStep((prev) => {

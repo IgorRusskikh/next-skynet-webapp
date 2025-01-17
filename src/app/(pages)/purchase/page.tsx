@@ -5,6 +5,7 @@ import Offices from "@/widgets/Offices";
 import Steps from "@/shared/Steps/Steps";
 import SuccessfullRequest from "@/widgets/SuccessfullRequest";
 import { usdtFormData } from "@/types/usdtFormData";
+import { useBackButton } from "@/hooks/useBackButton";
 import { useState } from "react";
 
 const steps = 3;
@@ -16,6 +17,8 @@ export default function PurchasePage() {
     currency: "RUB",
     amount: "",
   });
+
+  useBackButton({ step, setStep });
 
   const nextStep = () => {
     setStep((prev) => {
