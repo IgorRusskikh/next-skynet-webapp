@@ -9,8 +9,6 @@ import SuccessfullRequest from "@/widgets/SuccessfullRequest";
 import WebApp from "@twa-dev/sdk";
 import { backButton } from "@telegram-apps/sdk";
 import { usdtFormData } from "@/types/usdtFormData";
-import { usePreloader } from "@/shared/contexts/PreloaderContext";
-import { useRouter } from "next/navigation";
 
 export default function SalePage() {
   const [step, setStep] = useState(1);
@@ -20,10 +18,6 @@ export default function SalePage() {
     amount: "",
   });
 
-  const { setIsLoaded } = usePreloader();
-
-  const router = useRouter();
-
   useEffect(() => {
     if (typeof window !== "undefined" && window.Telegram) {
       WebApp.ready();
@@ -32,7 +26,9 @@ export default function SalePage() {
       backButton.mount();
 
       if (backButton.isMounted()) {
-        backButton.onClick(backButtonListener);
+        backButton.show();
+        const offClick = backButton.onClick(backButtonListener);
+        offClick();
       }
     }
   }, []);
@@ -56,13 +52,10 @@ export default function SalePage() {
 
   const backButtonListener = () => {
     if (backButton.onClick.isAvailable()) {
-      if (step === 1) {
-        setIsLoaded(false);
-        setTimeout(() => {
-          router.push("/");
-        }, 500);
-      } else {
+      if (step > 1) {
         prevStep();
+      } else {
+        WebApp;
       }
     }
   };
