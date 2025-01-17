@@ -27,10 +27,7 @@ export const useBackButton = ({ step, setStep }: UseBackButtonProps) => {
   }, [router]);
 
   const prevStep = useCallback(() => {
-    setStep((prev) => {
-      const newStep = Math.max(prev - 1, 1);
-      return newStep;
-    });
+    setStep((prev) => Math.max(prev - 1, 1));
   }, [setStep]);
 
   const backButtonListener = useCallback(() => {
