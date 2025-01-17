@@ -29,19 +29,16 @@ export const useBackButton = ({ step, setStep }: UseBackButtonProps) => {
   const prevStep = useCallback(() => {
     setStep((prev) => {
       const newStep = Math.max(prev - 1, 1);
-      stepRef.current = newStep;
       return newStep;
     });
-  }, []);
+  }, [setStep]);
 
   const backButtonListener = useCallback(() => {
-    if (backButton.onClick.isAvailable()) {
-      console.log("Current step:", stepRef.current);
-      if (stepRef.current <= 1) {
-        goToHomePage();
-      } else {
-        prevStep();
-      }
+    console.log("Current step:", stepRef.current);
+    if (stepRef.current > 1) {
+      prevStep();
+    } else {
+      goToHomePage();
     }
   }, [goToHomePage, prevStep]);
 
