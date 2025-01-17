@@ -50,5 +50,5 @@ export const useBackButton = ({ step, setStep }: UseBackButtonProps) => {
     return () => {
       backButton.unmount();
     };
-  }, [backButtonListener]);
+  }, [step]);
 };
