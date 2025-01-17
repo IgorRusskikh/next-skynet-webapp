@@ -23,7 +23,6 @@ export default function SalePage() {
       WebApp.ready();
       console.log(WebApp);
 
-      backButton.show();
       backButton.onClick(backButtonListener);
     }
   }, []);
