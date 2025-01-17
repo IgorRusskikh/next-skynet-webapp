@@ -1,7 +1,7 @@
 "use client";
 
 import { offBackButtonClick, onBackButtonClick } from "@telegram-apps/sdk";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import BuySellForm from "@/widgets/BuySellForm";
 import Offices from "@/widgets/Offices";
@@ -14,6 +14,7 @@ import { useRouter } from "next/navigation";
 
 export default function SalePage() {
   const [step, setStep] = useState(1);
+  const stepRef = useRef(1);
   const [formData, setFormData] = useState<usdtFormData>({
     address: "",
     currency: "RUB",
@@ -29,21 +30,33 @@ export default function SalePage() {
   }, []);
 
   useEffect(() => {
+    stepRef.current = step;
+  }, [step]);
+
+  const goToHomePage = useCallback(() => {
+    router.push("/");
+  }, [router]);
+
+  const prevStep = useCallback(() => {
+    setStep((prev) => Math.max(prev - 1, 1));
+  }, []);
+
+  const backButtonListener = useCallback(() => {
+    if (backButton.onClick.isAvailable()) {
+      console.log("Current step:", stepRef.current);
+      if (stepRef.current <= 1) {
+        goToHomePage();
+      } else {
+        prevStep();
+      }
+    }
+  }, [goToHomePage, prevStep]);
+
+  useEffect(() => {
     backButton.mount();
     backButton.show();
 
     if (backButton.isMounted()) {
-      const backButtonListener = () => {
-        if (backButton.onClick.isAvailable()) {
-          console.log("Current step:", step);
-          if (step <= 1) {
-            router.push("/");
-          } else {
-            prevStep();
-          }
-        }
-      };
-
       const offClick = onBackButtonClick(backButtonListener);
 
       return () => {
@@ -51,21 +64,11 @@ export default function SalePage() {
         backButton.unmount();
       };
     }
-  }, [step, router]);
+  }, [backButtonListener]);
 
-  const nextStep = () => {
+  const nextStep = useCallback(() => {
     setStep((prev) => Math.min(prev + 1, 3));
-  };
-
-  const prevStep = () => {
-    setStep((prev) => {
-      if (prev > 1) {
-        return prev - 1;
-      }
-      router.push("/");
-      return prev;
-    });
-  };
+  }, []);
 
   return (
     <main className="min-h-[100dvh] flex flex-col">
