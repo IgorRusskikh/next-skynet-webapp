@@ -6,6 +6,7 @@ import BuySellForm from "@/widgets/BuySellForm";
 import Offices from "@/widgets/Offices";
 import Steps from "@/shared/Steps/Steps";
 import SuccessfullRequest from "@/widgets/SuccessfullRequest";
+import WebApp from "@twa-dev/sdk";
 import { backButton } from "@telegram-apps/sdk";
 import { usdtFormData } from "@/types/usdtFormData";
 
@@ -19,6 +20,9 @@ export default function SalePage() {
 
   useEffect(() => {
     if (typeof window !== "undefined" && window.Telegram) {
+      WebApp.ready();
+      console.log(WebApp);
+
       backButton.show();
       backButton.onClick(backButtonListener);
     }
