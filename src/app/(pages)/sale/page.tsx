@@ -51,55 +51,50 @@ export default function SalePage() {
         backButton.unmount();
       };
     }
-  }, [step]);
+  }, [step, router]);
 
   const nextStep = () => {
-    setStep((prev) => {
-      if (prev + 1 <= 3) {
-        return prev + 1;
-      }
-      return prev;
-    });
+    setStep((prev) => Math.min(prev + 1, 3));
   };
+
   const prevStep = () => {
     setStep((prev) => {
-      if (prev - 1 >= 1) {
+      if (prev > 1) {
         return prev - 1;
       }
+      router.push("/");
       return prev;
     });
   };
 
   return (
-    <>
-      <main className="min-h-[100dvh] flex flex-col">
-        <Steps title="Продажа USDT" steps={2} currentStep={step} />
-        <div className="container relative flex flex-col flex-1 overflow-hidden">
-          <Offices
-            step={step}
-            showPoint={1}
-            nextStep={nextStep}
-            setFormData={setFormData}
-          />
-          <BuySellForm
-            verification
-            formData={formData}
-            setFormData={setFormData}
-            step={step}
-            nextStep={nextStep}
-          />
-        </div>
-
-        <SuccessfullRequest
-          operation="sale"
-          verification
-          code="123456"
-          amount={10000}
-          currency="USDT"
-          manager="manager"
-          show={step === 3}
+    <main className="min-h-[100dvh] flex flex-col">
+      <Steps title="Продажа USDT" steps={2} currentStep={step} />
+      <div className="container relative flex flex-col flex-1 overflow-hidden">
+        <Offices
+          step={step}
+          showPoint={1}
+          nextStep={nextStep}
+          setFormData={setFormData}
         />
-      </main>
-    </>
+        <BuySellForm
+          verification
+          formData={formData}
+          setFormData={setFormData}
+          step={step}
+          nextStep={nextStep}
+        />
+      </div>
+
+      <SuccessfullRequest
+        operation="sale"
+        verification
+        code="123456"
+        amount={10000}
+        currency="USDT"
+        manager="manager"
+        show={step === 3}
+      />
+    </main>
   );
 }
