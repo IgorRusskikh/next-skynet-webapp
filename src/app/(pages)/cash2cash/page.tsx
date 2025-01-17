@@ -4,7 +4,7 @@ import Cash2CashExchangeForm from "@/widgets/Cash2CashExchangeForm";
 import Locations from "@/widgets/Locations";
 import Steps from "@/shared/Steps/Steps";
 import SuccessfulRequest from "@/widgets/SuccessfullRequest";
-import { useBackButton } from "@/hooks/useBackButton";
+import { useBackButton } from "@/shared/hooks/useBackButton";
 import { useState } from "react";
 
 const clearFormData: cashToCashFormData = {

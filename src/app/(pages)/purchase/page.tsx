@@ -5,7 +5,7 @@ import Offices from "@/widgets/Offices";
 import Steps from "@/shared/Steps/Steps";
 import SuccessfullRequest from "@/widgets/SuccessfullRequest";
 import { usdtFormData } from "@/types/usdtFormData";
-import { useBackButton } from "@/hooks/useBackButton";
+import { useBackButton } from "@/shared/hooks/useBackButton";
 import { useState } from "react";
 
 const steps = 3;
