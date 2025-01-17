@@ -8,7 +8,9 @@ import { useClickAway } from "@uidotdev/usehooks";
 interface Props extends HTMLAttributes<HTMLDivElement> {
   setValue?: (value: string) => void;
   currentOption: (isOpen: boolean) => JSX.Element;
-  options: string[] | [() => JSX.Element];
+  options:
+    | string[]
+    | ((props: { setValue?: (value: string) => void }) => JSX.Element)[];
 }
 
 export default function Select({
@@ -59,7 +61,6 @@ export default function Select({
             return (
               <Option
                 key={inx}
-                // @ts-expect-error: comment for now
                 setValue={(value: string) => {
                   if (setValue) setValue(value);
                   setIsOpen(false);

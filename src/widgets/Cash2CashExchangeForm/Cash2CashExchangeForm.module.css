@@ -1,5 +1,6 @@
 .formWrapper {
   @apply pt-[6.67vw] font-medium pb-[11.11vw] flex flex-1 bg-white absolute top-0 transition-all duration-500 ease-in-out h-full w-full;
+  max-height: calc(100vh - 11.11vw);
 }
 
 .formWrapperHidden {
@@ -72,4 +73,8 @@
 
 .actions button {
   @apply h-[10.56vw] bg-[#EAEAEA] mt-[4.44vw];
+}
+
+.activeButton {
+  @apply !bg-primary-red text-white;
 }

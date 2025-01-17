@@ -54,7 +54,13 @@ const Cash2CashExchangeForm = ({
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    nextStep();
+
+    if (
+      parseFloat(formData.payAmount) > 0 &&
+      parseFloat(formData.getAmount) > 0
+    ) {
+      nextStep();
+    }
   };
 
   return (
@@ -73,9 +79,9 @@ const Cash2CashExchangeForm = ({
             <label htmlFor="pay">Вы отдаёте в {formData.cityPay}</label>
             <Select
               currentOption={(isOpen) =>
-                CurrentOption(isOpen, formData.payAmount)
+                CurrentOption(isOpen, formData.payCurrency)
               }
-              options={["1"]}
+              options={[RubleOption, DollarOption, EuroOption]}
               className={`${styles.select}`}
               setValue={onClickPayCurrency}
             />
@@ -97,8 +103,7 @@ const Cash2CashExchangeForm = ({
               currentOption={(isOpen) =>
                 CurrentOption(isOpen, formData.getCurrency)
               }
-              // @ts-expect-error: comment for now
-              options={[DollarOption, EuroOption]}
+              options={[RubleOption, DollarOption]}
               className={`${styles.select}`}
               setValue={onClickGetCurrency}
             />
@@ -126,7 +131,16 @@ const Cash2CashExchangeForm = ({
             верифицироваться или приехать лично в офис.
           </p>
 
-          <Button>Запросить верификацию</Button>
+          <Button
+            className={`${
+              parseFloat(formData.payAmount) > 0 &&
+              parseFloat(formData.getAmount) > 0
+                ? styles.activeButton
+                : ""
+            }`}
+          >
+            Запросить верификацию
+          </Button>
         </div>
       </form>
     </div>
@@ -160,6 +174,22 @@ function CurrentOption(isOpen: boolean, currency: string) {
 
 interface IOptionProps {
   setValue?: (value: string) => void;
+}
+
+function RubleOption({ setValue }: IOptionProps) {
+  return (
+    <div
+      className={`${styles.option}`}
+      onClick={() => setValue && setValue("RUB")}
+    >
+      <div className={`${styles.currency}`}>
+        <div className={`${styles.currencyIcon}`}>
+          <Image src={"/ruble.png"} fill alt="Ruble" />
+        </div>
+        <span>RUB</span>
+      </div>
+    </div>
+  );
 }
 
 function DollarOption({ setValue }: IOptionProps) {

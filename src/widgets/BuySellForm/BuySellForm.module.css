@@ -1,5 +1,6 @@
 .form {
-  @apply container mt-[6.67vw] font-medium flex flex-1 flex-col justify-between pb-[11.11vw] absolute top-0 left-0 w-full h-full bg-white transition-all duration-500 ease-in-out;
+  @apply container pt-[6.67vw] font-medium flex flex-1 flex-col justify-between pb-[11.11vw] absolute top-0 left-0 w-full h-full bg-white transition-all duration-500 ease-in-out;
+  max-height: calc(100vh - 11.11vw);
 }
 
 .formShown {
@@ -43,5 +44,5 @@
 }
 
 .buttonActive {
-  @apply bg-primary-red text-white;
+  @apply !bg-primary-red text-white;
 }

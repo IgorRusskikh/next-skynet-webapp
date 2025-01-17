@@ -1,4 +1,10 @@
-import { Dispatch, SetStateAction } from "react";
+import {
+  ChangeEvent,
+  Dispatch,
+  ReactElement,
+  SetStateAction,
+  useState,
+} from "react";
 
 import { Button } from "@/shared/ui/Button";
 import Image from "next/image";
@@ -18,6 +24,42 @@ const Offices = <T extends { address: string }>({
   setFormData,
   showPoint,
 }: Props<T>) => {
+  const [search, setSearch] = useState("");
+  const [offices, setOffices] = useState<ReactElement[]>([
+    <Addresses
+      key="Москва"
+      city="Москва"
+      streets={["ул. улица, 18, офис 203"]}
+      nextStep={nextStep}
+      setFormData={setFormData}
+    />,
+    <Addresses
+      key="Уфа"
+      city="Уфа"
+      streets={["ул. улица, 18, офис 203"]}
+      nextStep={nextStep}
+      setFormData={setFormData}
+    />,
+    <Addresses
+      key="Майами"
+      city="Майами"
+      streets={["ул. улица, 18, офис 203"]}
+      nextStep={nextStep}
+      setFormData={setFormData}
+    />,
+    <Addresses
+      key="Дубай"
+      city="Дубай"
+      streets={["ул. улица, 18, офис 203"]}
+      nextStep={nextStep}
+      setFormData={setFormData}
+    />,
+  ]);
+
+  const onChangeSearch = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value);
+  };
+
   return (
     <div
       className={`${styles.offices} ${
@@ -32,38 +74,15 @@ const Offices = <T extends { address: string }>({
         <InputWithLabel
           label="Выберите офис для посещения"
           placeholder={"Поиск..."}
+          value={search}
+          onChange={onChangeSearch}
         >
           <div className={`${styles.icon}`}>
             <Image src="/scale.png" fill alt="Search" />
           </div>
         </InputWithLabel>
 
-        <div className={`${styles.addresses}`}>
-          <Addresses
-            city="Москва"
-            streets={["ул. улица, 18, офис 203"]}
-            nextStep={nextStep}
-            setFormData={setFormData}
-          />
-          <Addresses
-            city="Москва"
-            streets={["ул. улица, 18, офис 203"]}
-            nextStep={nextStep}
-            setFormData={setFormData}
-          />
-          <Addresses
-            city="Москва"
-            streets={["ул. улица, 18, офис 203"]}
-            nextStep={nextStep}
-            setFormData={setFormData}
-          />
-          <Addresses
-            city="Москва"
-            streets={["ул. улица, 18, офис 203"]}
-            nextStep={nextStep}
-            setFormData={setFormData}
-          />
-        </div>
+        <div className={`${styles.addresses}`}>{offices}</div>
       </div>
 
       <div className={`${styles.contactWithManager}`}>

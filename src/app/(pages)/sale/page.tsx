@@ -1,11 +1,13 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 import BuySellForm from "@/widgets/BuySellForm";
 import Offices from "@/widgets/Offices";
 import Steps from "@/shared/Steps/Steps";
 import SuccessfullRequest from "@/widgets/SuccessfullRequest";
+import { backButton } from "@telegram-apps/sdk";
 import { usdtFormData } from "@/types/usdtFormData";
-import { useState } from "react";
 
 export default function SalePage() {
   const [step, setStep] = useState(1);
@@ -14,6 +16,13 @@ export default function SalePage() {
     currency: "RUB",
     amount: "",
   });
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.Telegram) {
+      backButton.show();
+      backButton.onClick(backButtonListener);
+    }
+  }, []);
 
   const nextStep = () => {
     setStep((prev) => {
@@ -30,6 +39,12 @@ export default function SalePage() {
       }
       return prev;
     });
+  };
+
+  const backButtonListener = () => {
+    if (backButton.onClick.isAvailable()) {
+      prevStep();
+    }
   };
 
   return (
